@@ -28,6 +28,7 @@ class Event
         if item.check_stock != 0
         item_names << item.name
       end
+      end
     end
     item_names.uniq!.sort
   end
@@ -45,7 +46,6 @@ class Event
   end
 
   def overstocked_items
-
   end
 
 end
