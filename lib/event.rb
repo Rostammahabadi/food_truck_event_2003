@@ -30,4 +30,16 @@ class Event
     item_names.uniq!.sort
   end
 
+  def total_inventory
+    sub_hash = {}
+    @food_trucks.each do |food_truck|
+      food_truck.inventory.keys.each do |item|
+        sub_hash[item] ||= {quantity: 0, food_trucks: []}
+        sub_hash[item][:quantity] += food_truck.inventory[item]
+        sub_hash[item][:food_trucks] << food_truck
+      end
+    end
+    sub_hash
+  end
+
 end
