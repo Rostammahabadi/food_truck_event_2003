@@ -21,9 +21,11 @@ class Event
   end
 
   def sorted_item_list
+    #doesn't account for if they are in stock
     item_names = []
     @food_trucks.each do |food_truck|
       food_truck.inventory.keys.each do |item|
+        if item.check_stock != 0
         item_names << item.name
       end
     end
@@ -40,6 +42,10 @@ class Event
       end
     end
     sub_hash
+  end
+
+  def overstocked_items
+
   end
 
 end
